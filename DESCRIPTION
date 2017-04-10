@@ -1,0 +1,17 @@
+Package: injuryepi
+Type: Package
+Title: Miscellaneous functions for Injury Epi
+Version: 0.1.0
+Date: 2017-04-09
+Author: Mamadou Ndiaye
+Maintainer: The package maintainer <injury.epi@gmail.com>
+URL: http://github.com/injuryepi/injuryepi
+Description: Miscellaneous functions.
+License: GPL-3
+Imports: tidyverse,
+         foreach,
+         epitools,
+         epiR,
+         stringr
+Encoding: UTF-8
+LazyData: true
