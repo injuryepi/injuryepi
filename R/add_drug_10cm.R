@@ -1,7 +1,4 @@
-
-source("https://raw.githubusercontent.com/epinotes/InjuryEpi/master/create_diag")
-
-add_drug_var_10cm <- function(data, main = "diag1", uid = "seq_no"){
+add_drug_10cm <- function(data, main = "diag1", uid = "seq_no"){
   require(tidyverse, quietly = T)
   require(lazyeval, quietly = T)
   
