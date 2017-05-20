@@ -6,7 +6,7 @@ create_diag <- function(data, expr, colvec, ignore.case = T){
   # select the variables of interest
   sel <- names(data)[colvec]
   # ensure they are all the variables are character vectors and create a data subset of the variables
-  df <- as_data_frame(data[sel]) %>% mutate_each(funs(as.character))
+  df <- as_data_frame(data[sel]) %>% mutate_all(funs(as.character))
   # a function to assign "1" if the regular expression matched or "0" otherwise 
   f <- function(x) grepl(expr, x, ignore.case = ignore.case)+0
   # apply the function above to all the cells in the data frame "df"
