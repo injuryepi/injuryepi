@@ -13,7 +13,7 @@ add_crude_adj <- function(x, y){
     dat_inc.rate <- dplyr::bind_cols(dat, dat_inc.rate)
     dat_inc.rate
   }
-  dat_a0 <- x %>% group_by(year) %>% summarise_each(funs(sum), count, pop)
+  dat_a0 <- x %>% group_by(year) %>% summarise_at(vars(count, pop), sum)
   a <- grep("count|pop", names(dat_a0))
   dat_a0 <- add_inc_rate(dat_a0, case = a[1], pop = a[2])
 
