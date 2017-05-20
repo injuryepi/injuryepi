@@ -14,7 +14,7 @@ create_cond_diag <- function(data, expr, colvec, ignore.case = T, cond.var){
   
   
   # ensure they are all character vector
-  df <- as_data_frame(data[sel]) %>% mutate_each(funs(as.character))
+  df <- as_data_frame(data[sel]) %>% mutate_all(funs(as.character))
   
   # a function to assign "1" if the regular expression matched or "0" otherwise 
   f <- function(x) grepl(expr, x, ignore.case = ignore.case)+0
