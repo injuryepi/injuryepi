@@ -1,4 +1,4 @@
-create_diag <- function(data, expr, colvec, ignore.case = T){
+create_diag <- function(data, expr, colvec, ignore.case = T, perl = T){
   #regexp=regular expressions for the data
   # colvec = vector of the columns of interest (columns with the diagnoses)
   require(dplyr, quietly = T)
@@ -8,7 +8,7 @@ create_diag <- function(data, expr, colvec, ignore.case = T){
   # ensure they are all the variables are character vectors and create a data subset of the variables
   df <- as_data_frame(data[sel]) %>% mutate_all(funs(as.character))
   # a function to assign "1" if the regular expression matched or "0" otherwise 
-  f <- function(x) grepl(expr, x, ignore.case = ignore.case)+0
+  f <- function(x) grepl(expr, x, ignore.case = ignore.case, perl = perl)+0
   # apply the function above to all the cells in the data frame "df"
   df <- sapply(df, f) 
   df <- as_data_frame(df)  %>% mutate(new_diag = rowSums(., na.rm = TRUE)) %>% select(new_diag)
