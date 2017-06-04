@@ -1,4 +1,4 @@
-create_cond_diag <- function(data, expr, colvec, ignore.case = T, cond.var){
+create_cond_diag <- function(data, expr, colvec, ignore.case = T, perl = T, cond.var){
   # expr=regular expressions of interest
   # colvec = vector of the columns of interest (columns with the diagnosis code)
   # cond.var = the conditional column with 0 and 1
@@ -17,7 +17,7 @@ create_cond_diag <- function(data, expr, colvec, ignore.case = T, cond.var){
   df <- as_data_frame(data[sel]) %>% mutate_all(funs(as.character))
   
   # a function to assign "1" if the regular expression matched or "0" otherwise 
-  f <- function(x) grepl(expr, x, ignore.case = ignore.case)+0
+  f <- function(x) grepl(expr, x, ignore.case = ignore.case, perl = perl)+0
   df <- sapply(df, f) 
   df <- as_data_frame(df)  %>% mutate(new_diag = rowSums(., na.rm = TRUE)) %>% 
     select(new_diag) %>% mutate(new_diag = as.numeric(new_diag > 0))
