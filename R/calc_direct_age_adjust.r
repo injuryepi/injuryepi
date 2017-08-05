@@ -1,4 +1,4 @@
-calc_age_adjust_us2000 <- function(data, count, population, s = 100000, r = 1, alpha = 0.05 ){
+calc_direct_age_adjust <- function(data, count, population, stdpop = NULL, s = 100000, r = 1, alpha = 0.05 ){
   # agegrp <- enquo(agegrp)
   count <- enquo(count)
   population <- enquo(population)
@@ -13,8 +13,10 @@ calc_age_adjust_us2000 <- function(data, count, population, s = 100000, r = 1, a
   # with more method details from
   # https://pdfs.semanticscholar.org/584d/0d020d77e84d193f42e162c59c64795dac6c.pdf
   
-    rate <- data %>% mutate(rate = count/population) %>% pull(rate)
-    stdwt <- us2000std/sum(us2000std)
+    stdpop <- ifelse(is.null(stdpop), us2000std, stdpop)
+    
+   rate <- data %>% mutate(rate = count/population) %>% pull(rate)
+    stdwt <- us2000std/sum(stdpop)
     dsr <- sum(stdwt * rate)
     var_k <- data %>% mutate(var_k = count/population^2) %>% pull(var_k)
     dsr_var <- sum((stdwt^2) * var_k)
@@ -35,4 +37,3 @@ data0 %>%
              upper_age_adj = round(gamma_uci*s, 1))
     
 }
-
