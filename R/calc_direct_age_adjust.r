@@ -36,8 +36,8 @@ data0 <- data %>%
 
 
 data0 %>%
-  add_column(age_adj_rate = round(dsr*s, 1) , 
-             lower_age_adj = round(gamma_lci*s, 1), 
-             upper_age_adj = round(gamma_uci*s, 1))
+  add_column(age_adj_rate = round(dsr*s, r) , 
+             lower_age_adj = round(gamma_lci*s, r), 
+             upper_age_adj = round(gamma_uci*s, r))
     
 }
