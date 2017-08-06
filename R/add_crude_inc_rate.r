@@ -6,7 +6,8 @@ add_crude_inc_rate <- function(data, count, population, s = 100000, r = 1, alpha
   count <- enquo(count)
   population <- enquo(population)
   
-  suppressWarnings(suppressMessages(require(tidyverse)))
+  suppressWarnings(suppressMessages(require(dplyr)))
+  suppressWarnings(suppressMessages(require(tibble)))
   
     a <- data %>% pull(count)
     N <- data %>% pull(population)
