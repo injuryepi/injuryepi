@@ -3,7 +3,8 @@ calc_direct_age_adjust <- function(data, count, population, standard_pop = NULL,
   count <- enquo(count)
   population <- enquo(population)
   
-  suppressWarnings(suppressMessages(require(tidyverse)))
+  suppressWarnings(suppressMessages(require(dplyr)))
+  suppressWarnings(suppressMessages(require(tibble)))
  
    us2000std = c(0.013818,0.055317,0.145565,0.138646, 0.135573,0.162613,0.134834,0.087247,0.066037,0.044842,0.015508)
     std_pop <- if (is.null(standard_pop)) {
