@@ -7,14 +7,14 @@ add_drug_10cm <- function(data, main = "diag1", uid = "seq_no"){
   # function to select intent 1 to 4 from 6th character
   f_intent6 <- compose(f1, 
                        function(x){
-    gsub("(?!^(?:T3[679]9|T414|T427|T4[3579]9))\\w{5}(\\w)\\w{1}", "\\1", x, perl=TRUE )
+    gsub("(?!^(?:T3[679]9|T414|T427|T4[3579]9))\\w{5}(\\w{1})\\w+", "\\1", x, perl=TRUE )
   }
   )
   
   # function to select intent 1 to 4 from 5th character
   f_intent5 <- compose(f1, 
                        function(x){
-    gsub("(?=^(?:T3[679]9|T414|T427|T4[3579]9))\\w{4}(\\w)\\w{2}", "\\1", x, perl=TRUE )
+    gsub("(?=^(?:T3[679]9|T414|T427|T4[3579]9))\\w{4}(\\w{1})\\w+", "\\1", x, perl=TRUE )
   }
   )
   # function to capture the encounter type
