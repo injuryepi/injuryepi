@@ -16,7 +16,7 @@ add_age11 <- function(data, age = age){
   mutate(data, 
          agegrp11 = agegrp11,
          age11 = fct_recode(agegrp11, "<1" = "1", 
-                            "01-4"  = "2",
+                            "01-04"  = "2",
                             "05-14" = "3",
                             "15-24" = "4",
                             "25-34" = "5",
