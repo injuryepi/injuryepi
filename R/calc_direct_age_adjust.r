@@ -1,4 +1,4 @@
-calc_direct_age_adjust <- function(data, agegrp = agegrp11 count -= count, population = population, standard_pop = NULL, s = 100000, r = 1, alpha = 0.05 ){
+calc_direct_age_adjust <- function(data, agegrp = agegrp11, count -= count, population = population, standard_pop = NULL, s = 100000, r = 1, alpha = 0.05 ){
   agegrp <- enquo(agegrp)
   count <- enquo(count)
   population <- enquo(population)
