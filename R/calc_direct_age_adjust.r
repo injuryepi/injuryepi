@@ -1,5 +1,5 @@
-calc_direct_age_adjust <- function(data, count = count, population = population, standard_pop = NULL, s = 100000, r = 1, alpha = 0.05 ){
-  # agegrp <- enquo(agegrp)
+calc_direct_age_adjust <- function(data, agegrp = agegpr11, count = count, population = population, standard_pop = NULL, s = 100000, r = 1, alpha = 0.05 ){
+  agegrp <- enquo(agegrp)
   count <- enquo(count)
   population <- enquo(population)
   
@@ -19,7 +19,7 @@ calc_direct_age_adjust <- function(data, count = count, population = population,
   # https://pdfs.semanticscholar.org/584d/0d020d77e84d193f42e162c59c64795dac6c.pdf
   
     
-   # data <- data %>% arrange(as.numeric(agegrp)) 
+   data <- data %>% arrange(as.numeric(!!agegrp)) 
    rate <- data %>% mutate(rate = count/population) %>% pull(rate)
     stdwt <- std_pop/sum(std_pop)
     dsr <- sum(stdwt * rate)
