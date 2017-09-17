@@ -1,4 +1,4 @@
-add_intent <- function(data, underlying_cause){
+add_ice_intent_mech <- function(data, underlying_cause){
 
 	underlying_cause <- enquo(underlying_cause)
 	underly <- "underly"
