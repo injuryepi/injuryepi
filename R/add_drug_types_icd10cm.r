@@ -9,17 +9,9 @@ add_drug_types_icd10cm <- function(data, diag_ecode_col){
 	cdc_heroin_icd10cm_regex7_ <- "T401.(1|2|3|4)(A|D|$)"
 
 	data %>%
-		mutate(any_drug_icd10cm =
-					 	create_diag(., expr = cdc_drugs_icd10cm_regex7_,
-					 							colvec = diag_ecode_col),
-					 any_opioid_icd10cm =
-					 	create_diag(., expr = cdc_opioid_icd10cm_regex7_,
-					 							colvec = diag_ecode_col),
-					 non_heroin_icd10cm =
-					 	create_diag(., expr = cdc_non_heroin_icd10cm_regex7_,
-					 							colvec = diag_ecode_col),
-					 heroin_icd10cm =
-					 	create_diag(., expr = cdc_heroin_icd10cm_regex7_,
-					 							colvec = diag_ecode_col)
+		mutate(any_drug_icd10cm = create_diag(., expr = cdc_drugs_icd10cm_regex7_, colvec = diag_ecode_col),
+		       any_opioid_icd10cm = create_diag(., expr = cdc_opioid_icd10cm_regex7_, colvec = diag_ecode_col),
+		       non_heroin_icd10cm = create_diag(., expr = cdc_non_heroin_icd10cm_regex7_, colvec = diag_ecode_col),
+		       heroin_icd10cm = create_diag(., expr = cdc_heroin_icd10cm_regex7_, colvec = diag_ecode_col)
 					 )
 }
