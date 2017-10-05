@@ -12,6 +12,6 @@ add_ice_intent_mech <- function(data, underlying_cause){
 
 	data %>%
 		mutate(!!underly := !!underlying_cause) %>%
-		fuzzyjoin::regex_left_join(ice_code, by = c("underly", "underly"))
+		fuzzyjoin::regex_left_join(ice_code)
 
 }
