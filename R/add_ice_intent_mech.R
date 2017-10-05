@@ -1,4 +1,4 @@
-add_ice_intent_mech <- function(data, underlying_cause){
+add_ice_intent_mech <- function(data, underlying_cause, ignore_case = TRUE){
 
 	underlying_cause <- enquo(underlying_cause)
 	underly <- "underly"
@@ -12,6 +12,6 @@ add_ice_intent_mech <- function(data, underlying_cause){
 
 	data %>%
 		mutate(!!underly := !!underlying_cause) %>%
-		fuzzyjoin::regex_left_join(ice_code, by = "underly")
+		fuzzyjoin::regex_left_join(ice_code, by = "underly", ignore_case = ignore_case)
 
 }
