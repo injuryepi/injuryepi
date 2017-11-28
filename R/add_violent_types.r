@@ -17,9 +17,9 @@ nvdrs_terror_regex_ <- "U0[123]"
                     nvdrs_undetermined = create_diag(., expr = nvdrs_undetermined_regex_ , colvec = underly_col),
                     nvdrs_unintent_firearm = create_diag(., expr = nvdrs_unintent_firearm_regex_ , colvec = underly_col),
                     nvdrs_terror = create_diag(., expr = nvdrs_terror_regex_ , colvec = underly_col)) %>% 
-        mutate(violent_types = ifelse(nvdrs_suicide == 1, 1, ifelse(nvdrs_homicide == 
+        mutate(violent_types = as.factor(ifelse(nvdrs_suicide == 1, 1, ifelse(nvdrs_homicide == 
             1, 2, ifelse(nvdrs_legal == 1, 3, ifelse(nvdrs_undetermined == 
-            1, 4, ifelse(nvdrs_unintent_firearm == 1,5, ifelse(nvdrs_terror == 1, 6, NA))))))) %>% 
+            1, 4, ifelse(nvdrs_unintent_firearm == 1,5, ifelse(nvdrs_terror == 1, 6, NA)))))))) %>% 
     select(-nvdrs_suicide, -nvdrs_homicide, -nvdrs_legal, -nvdrs_undetermined, -nvdrs_unintent_firearm, -nvdrs_terror) %>%
     
     mutate(violent_labels = fct_recode(violent_types, 
