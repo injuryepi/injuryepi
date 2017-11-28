@@ -10,6 +10,9 @@ add_ice_intent_mech <- function (data, uid, underlying_cause, ignore_case = TRUE
 	suppressWarnings(suppressMessages(require(fuzzyjoin)))
 	data %>% mutate(!!underly := !!underlying_cause) %>% 
 		fuzzyjoin::regex_left_join(ice_code, by = c("underly", "underly"), ignore_case = ignore_case) %>% 
-		filter(!duplicated(!!uid))
+		filter(!duplicated(!!uid)) %>% 
+	        rename(underly = underly.x) %>%
+	        select(-underly.y)
+	
 		
 }
