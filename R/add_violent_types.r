@@ -28,5 +28,5 @@ nvdrs_terror_regex_ <- "U0[123]"
                             "legal" = "3",
                             "undetermined" = "4",
                             "accidental firearm" = "5",
-                            "terrorism" = "6")))
+                            "terrorism" = "6"))
 }
