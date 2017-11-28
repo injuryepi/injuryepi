@@ -7,7 +7,7 @@ nvdrs_suicide_regex_ <- "X[67]|X8[0-4]|Y870"
 nvdrs_homicide_regex_ <- "X8[5-9]|X9|Y0|Y871"
 nvdrs_legal_regex_ <- "Y35[0-467]|Y890"
 
-nvdrs_undetermined_regex_ <- "Y[12]Y3[0-4]|Y872|Y899"
+nvdrs_undetermined_regex_ <- "Y[12]|Y3[0-4]|Y872|Y899"
 nvdrs_unintent_firearm_regex_ <- "W3[2-4]" # consider Y86 when due to firearm
 nvdrs_terror_regex_ <- "U0[123]"
 
