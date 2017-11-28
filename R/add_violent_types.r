@@ -1,5 +1,8 @@
 add_violent_types <- function(data,underly_col) {
     
+  suppressWarnings(suppressMessages(require(dplyr)))
+  suppressWarnings(suppressMessages(require(forcats)))
+    
 nvdrs_suicide_regex_ <- "X[67]|X8[0-4]|Y870"
 nvdrs_homicide_regex_ <- "X8[5-9]|X9|Y0|Y871"
 nvdrs_legal_regex_ <- "Y35[0-467]|Y890"
