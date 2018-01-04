@@ -9,8 +9,8 @@ add_crude_inc_rate <- function(data, count, population, s = 100000, r = 1, alpha
   suppressWarnings(suppressMessages(require(dplyr)))
   suppressWarnings(suppressMessages(require(tibble)))
   
-    a <- data %>% pull(count)
-    N <- data %>% pull(population)
+    a <- data %>% pull(!!count)
+    N <- data %>% pull(!!population)
     p <- a/N
     z <- -qnorm(alpha/2)
     moe <- ((z/sqrt(N))*sqrt(p*(1-p) + z^2/(4*N)))/(1+z^2/N)
