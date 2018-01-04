@@ -6,7 +6,7 @@ add_age12 <- function(data, age = age){
   
   age <- enquo(age)
   
-  age <- data %>% pull(age)
+  age <- data %>% pull(!!age)
   
   agecut12 <- c(0, 9, 14,17, 19, 24,34,44,54,64, 74, 84, max( age, na.rm = T))
   
