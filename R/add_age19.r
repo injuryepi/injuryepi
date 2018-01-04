@@ -6,7 +6,7 @@ add_age19 <- function(data, age = age){
   
   age <- enquo(age)
   
-  age <- data %>% pull(age)
+  age <- data %>% pull(!!age)
   
 agecut19 <- c(0,.99, 4, 9, 14,19, 24, 29, 34, 39, 44,49, 54,59,64,69,74,79,84, max(age, na.rm = T))
   int19 <- classIntervals(age, n = 19, style="fixed", fixedBreaks=agecut19, intervalClosure = "right")
