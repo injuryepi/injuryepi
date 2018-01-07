@@ -1,6 +1,7 @@
 add_var_regex <- function(data, expr, var_name, ...) {
-  # regexp=regular expressions for the data colvec = vector of the columns of
-  # interest (columns with the diagnoses)
+  # expr = regular expressions for the data
+  # var_name = name for the new variable  
+  # ... = columns of interest (columns with the diagnoses indices or names without quotes)
   require(dplyr, quietly = T)
   require(tidyr, quietly = T)
   require(purrr, quietly = T)
