@@ -14,7 +14,7 @@ add_count_var_regex <- function(data, expr, var_name, ...) {
   
   #a function to assign '1' if the regular expression matched 
   f1 <- function(x) as.numeric(grepl(expr, x, ignore.case = ignore.case, perl = perl))
-  f2 <- function(x) as.numeric(rowSums(x, na.rm = TRUE) } 
+  f2 <- function(x) as.numeric(rowSums(x, na.rm = TRUE) )
 
   df <- data %>% select(!!!sel) %>% 
     mutate_all(funs(as.character)) %>% 
