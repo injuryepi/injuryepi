@@ -33,7 +33,7 @@ add_intent_mech_icd9cm <- function(data, inj_col, reference = c("both", "intent"
   f_im <- function(data = data, inj_col, var_name, expr) {
     var_name <- quo_name(var_name)
 
-    data %>% mutate(!!var_name := create_new_diag(., expr = expr, colvec = inj_col)) %>% select(!!var_name)
+    data %>% mutate(!!var_name := create_diag(., expr = expr, colvec = inj_col)) %>% select(!!var_name)
   }
   dat2 <- map2_dfc(.x = list_int_mech, .y = list_expr, ~f_im(data = data, inj_col = inj_col, var_name = .x, expr =.y))
 
