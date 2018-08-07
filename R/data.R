@@ -42,3 +42,39 @@
 #' sample_n(ice_code9, 5)
 #'
 "ice_code9"
+
+#' icd9 intent and mechanism.
+#'
+#' Dataset of 84 rows and 4 variables.
+#'
+#'
+#' @format Data frame
+#'
+#' @keywords reference
+#' @examples
+#'
+"icd9cm_intent_mech_regex"
+
+#' icd9 intent.
+#'
+#' Dataset of 5 rows and 3 variables.
+#'
+#'
+#' @format Data frame
+#'
+#' @keywords reference
+#' @examples
+#'
+"icd9cm_intent_regex"
+
+#' icd9 mechanism.
+#'
+#' Dataset of 30 rows and 3 variables.
+#'
+#'
+#' @format Data frame
+#'
+#' @keywords reference
+#' @examples
+#'
+"icd9cm_mech_regex"
