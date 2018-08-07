@@ -2,5 +2,7 @@
 
 export(add_cdc_drugs)
 export(add_intent_mech_icd9cm)
+export(add_new_diag)
 export(add_self_harm_9_10cm)
+export(create_diag)
 importFrom(purrr,map2_dfc)
