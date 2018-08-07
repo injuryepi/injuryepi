@@ -8,7 +8,6 @@
 #' @return table saved to clipboard
 #'
 #' @export
-#' @importFrom
 #'
 #' @examples
 #'
